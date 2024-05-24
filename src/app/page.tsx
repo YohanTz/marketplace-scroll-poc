@@ -35,9 +35,9 @@ function CollectionInfos() {
         hasScrolled ? "h-[7rem]" : "h-[8.5rem]",
       )}
     >
-      <div className="flex h-full items-center gap-4">
+      <div className="flex h-full flex-shrink-0 items-center gap-4">
         <div className="aspect-square h-full flex-shrink-0 rounded-xl bg-slate-700" />
-        <div className="flex h-full flex-col justify-between">
+        <div className="flex h-full flex-shrink-0 flex-col justify-between">
           <p className="text-lg">Collection name</p>
           <p className="text-sm">Created Mar 2022</p>
           <p className="text-sm text-muted-foreground">More info</p>
