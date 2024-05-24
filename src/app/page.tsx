@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
@@ -9,8 +9,31 @@ function Banner() {
 }
 
 function CollectionInfos() {
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY >= 264) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="flex h-[8.5rem] items-center justify-between border-b border-border p-5">
+    <div
+      className={cn(
+        "relative z-10 flex items-center justify-between border-b border-border p-5 transition-[height]",
+        hasScrolled ? "h-[7rem]" : "h-[8.5rem]",
+      )}
+    >
       <div className="flex h-full items-center gap-4">
         <div className="aspect-square h-full flex-shrink-0 rounded-xl bg-slate-700" />
         <div className="flex h-full flex-col justify-between">
@@ -36,7 +59,7 @@ interface FiltersBar {
 }
 function FiltersBar({ toggleFilters }: FiltersBar) {
   return (
-    <div className="sticky top-[14rem] bg-background px-5 pb-5 pt-6">
+    <div className="sticky top-[12.5rem] bg-background px-5 pb-5 pt-6">
       <Button onClick={toggleFilters}>Filters</Button>
     </div>
   );
@@ -49,7 +72,7 @@ function FiltersContent({ show }: FiltersContentProps) {
   return (
     <div
       className={cn(
-        "sticky top-[14rem] h-[calc(100vh-136px-88px)] flex-shrink-0 overflow-x-hidden overflow-y-scroll transition-[width]",
+        "sticky top-[12.5rem] h-[calc(100vh-7rem-5.5rem)] flex-shrink-0 overflow-x-hidden overflow-y-scroll transition-[width]",
         show ? "w-64 border-r border-border" : "w-0",
       )}
     >
