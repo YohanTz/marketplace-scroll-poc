@@ -30,7 +30,7 @@ function CollectionInfos() {
   return (
     <div
       className={cn(
-        "relative z-10 flex items-center justify-between border-b border-border p-5 transition-[height]",
+        "flex items-center justify-between border-b border-border p-5 transition-[height]",
         hasScrolled ? "h-[7rem]" : "h-[8.5rem]",
       )}
     >
@@ -100,7 +100,7 @@ export default function HomePage() {
   return (
     <main>
       <Banner />
-      <div className="sticky top-[5.5rem] flex flex-col bg-background">
+      <div className="sticky top-[5.5rem] z-50 flex flex-col bg-background">
         <CollectionInfos />
       </div>
       <div className="flex">
