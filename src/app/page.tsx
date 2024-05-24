@@ -19,6 +19,7 @@ function CollectionInfos() {
         setHasScrolled(false);
       }
     };
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
 
@@ -100,7 +101,7 @@ export default function HomePage() {
   return (
     <main>
       <Banner />
-      <div className="sticky top-[5.5rem] z-50 flex flex-col bg-background">
+      <div className="sticky top-[5.5rem] z-10 flex flex-col bg-background">
         <CollectionInfos />
       </div>
       <div className="flex">
