@@ -77,7 +77,12 @@ function FiltersContent({ show }: FiltersContentProps) {
         show ? "w-64 border-r border-border" : "w-0",
       )}
     >
-      <div className="w-64 px-5 pb-5">
+      <div
+        className={cn(
+          "w-64 px-5 pb-5 transition-opacity",
+          show ? "opacity-100" : "opacity-0",
+        )}
+      >
         <p className="sticky top-0 bg-background pb-10 pt-5 text-lg">Status</p>
         <div className="flex flex-col gap-6">
           {[
